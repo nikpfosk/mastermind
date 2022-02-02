@@ -34,6 +34,8 @@ class SecretGenerator
     {
         static_assert(std::is_integral<T>::value,
                       "Template argument T must be integral");
+        static_assert(sizeof(T) > 1,
+                      "Template argument T should not be bool or (u)char");
         assert(length > 0);
         assert(maxValue > 0);
         GenerateSecret(length, maxValue);
