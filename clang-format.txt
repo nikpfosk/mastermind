@@ -1,4 +1,5 @@
 ﻿---
-BasedOnStyle: Mozilla
+BasedOnStyle: LLVM
+IndentWidth: '4'
 
 ...
