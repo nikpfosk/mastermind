@@ -45,7 +45,7 @@ The *codemaker* responds in each guess by the number of pins with correct color 
 
 ## Demo
 
-This is a sample from an actual round that the player won
+This is a sample from an actual round that the player won, also demonstrating two cases where the user provided invalid input.
 
 ```
 ************************************************
@@ -70,40 +70,85 @@ Max number of moves: 12
 Provide input for round 1 ...
 1,2,3,4
 
-Pins with correct color and correct position: 2
+Pins with correct color and correct position: 0
 
-Pins with correct color and wrong position: 0
+Pins with correct color and wrong position: 1
+
+Provide input for round 2 ...
+10,3,4,5
+Value 10 is out of bounds.
+Please provide values between 1 and 6
+
+Provide input for round 2 ...
+3,4,5,6,7
+You have provided 5 values.
+Please provide 4 values separated by: ,
 
 Provide input for round 2 ...
 1,2,5,6
 
-Pins with correct color and correct position: 3
+Pins with correct color and correct position: 0
 
-Pins with correct color and wrong position: 0
+Pins with correct color and wrong position: 2
 
 Provide input for round 3 ...
-1,2,5,3
+5,6,1,2
 
-Pins with correct color and correct position: 3
+Pins with correct color and correct position: 2
 
 Pins with correct color and wrong position: 0
 
 Provide input for round 4 ...
-1,2,5,2
+5,6,3,4
 
-Pins with correct color and correct position: 3
+Pins with correct color and correct position: 1
 
-Pins with correct color and wrong position: 1
+Pins with correct color and wrong position: 0
 
 Provide input for round 5 ...
-1,2,5,5
+3,6,1,2
 
-Pins with correct color and correct position: 3
+Pins with correct color and correct position: 2
+
+Pins with correct color and wrong position: 0
+
+Provide input for round 6 ...
+1,6,1,2
+
+Pins with correct color and correct position: 2
 
 Pins with correct color and wrong position: 1
 
-Provide input for round 6 ...
-1,2,5,1
+Provide input for round 7 ...
+3,6,1,1
+
+Pins with correct color and correct position: 3
+
+Pins with correct color and wrong position: 0
+
+Provide input for round 8 ...
+2,6,1,1
+
+Pins with correct color and correct position: 3
+
+Pins with correct color and wrong position: 0
+
+Provide input for round 9 ...
+4,6,1,1
+
+Pins with correct color and correct position: 3
+
+Pins with correct color and wrong position: 0
+
+Provide input for round 10 ...
+5,6,1,1
+
+Pins with correct color and correct position: 3
+
+Pins with correct color and wrong position: 0
+
+Provide input for round 11 ...
+6,6,1,1
 
 Pins with correct color and correct position: 4
 
