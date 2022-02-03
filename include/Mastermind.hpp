@@ -18,8 +18,13 @@ class Mastermind : public utilities::IRoundBasedGame
 {
   public:
     Mastermind()
-      : _secretGenerator{ constants::numHoles, 1, constants::numColors }
-      , _inputValidator{ constants::numHoles, 1, constants::numColors, "," }
+      : _secretGenerator{ utilities::constants::numHoles,
+                          1,
+                          utilities::constants::numColors }
+      , _inputValidator{ utilities::constants::numHoles,
+                         1,
+                         utilities::constants::numColors,
+                         "," }
     {}
     virtual ~Mastermind(){};
 

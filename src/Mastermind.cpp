@@ -8,7 +8,18 @@ using namespace utilities;
 void
 Mastermind::PrintGameRules()
 {
-    std::cout << "GAME RULESSSSS" << std::endl;
+    std::cout << "************************************************"
+              << std::endl;
+    std::cout << "\nWelcome to the game of Mastermind.\n" << std::endl;
+    std::cout << "\nThe parameters we have set for you are:\n" << std::endl;
+    std::cout << "\nNumber of colors: " << constants::numColors << "\n"
+              << std::endl;
+    std::cout << "\nNumber of holes: " << constants::numHoles << "\n"
+              << std::endl;
+    std::cout << "\nMax number of moves: " << constants::maxMoves << "\n"
+              << std::endl;
+    std::cout << "************************************************"
+              << std::endl;
 }
 
 RoundOutcome
