@@ -10,7 +10,6 @@ using namespace mastermind;
 int
 main()
 {
-    auto mastermind = std::make_shared<Mastermind>();
-    RoundBasedGameExecutor executor(mastermind);
+    RoundBasedGameExecutor executor(std::make_shared<Mastermind>());
     executor.PlayGame();
 }

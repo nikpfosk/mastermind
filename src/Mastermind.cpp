@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 
 #include "Mastermind.hpp"
@@ -40,5 +41,31 @@ Mastermind::PlayRound(const std::string& input)
 bool
 Mastermind::ProcessInput(const std::vector<int>& inputValues)
 {
-    return true;
+    int correctColAndPos = 0;
+    int correctColWrongPos = 0;
+
+    int index = 0;
+    for (const auto& value : inputValues) {
+        if (value == _secretGenerator.GetSecret()[index]) {
+            ++correctColAndPos;
+        } else {
+            if (std::find(_secretGenerator.GetSecret().begin(),
+                          _secretGenerator.GetSecret().end(),
+                          value) != _secretGenerator.GetSecret().end()) {
+                ++correctColWrongPos;
+            }
+        }
+        ++index;
+    }
+
+    std::cout << "\nPins with correct color and correct position: "
+              << correctColAndPos << std::endl;
+    std::cout << "\nPins with correct color and wrong position: "
+              << correctColWrongPos << std::endl;
+
+    if (correctColAndPos == constants::numHoles) {
+        return true;
+    } else {
+        return false;
+    }
 }

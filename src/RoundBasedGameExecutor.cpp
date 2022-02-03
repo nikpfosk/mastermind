@@ -12,7 +12,8 @@ RoundBasedGameExecutor::PlayGame()
 
     int round = 1;
     while (round <= constants::maxMoves) {
-        std::cout << "\n****** Provide input for round " << round << std::endl;
+        std::cout << "\nProvide input for round " << round << " ..."
+                  << std::endl;
         std::string userInput;
         std::cin >> userInput;
 
@@ -20,7 +21,7 @@ RoundBasedGameExecutor::PlayGame()
 
         switch (roundOutcome) {
             case RoundOutcome::GAME_WON:
-                std::cout << "Congratulations! You have won the game!"
+                std::cout << "\nCongratulations! You have won the game!\n"
                           << std::endl;
                 return;
                 break;
