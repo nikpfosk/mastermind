@@ -34,6 +34,8 @@ class Mastermind : public utilities::IRoundBasedGame
   private:
     utilities::SecretGenerator<int> _secretGenerator;
     utilities::InputValidator<int> _inputValidator;
+
+    bool ProcessInput(const std::vector<int>& inputValues);
 };
 
 } // namespace utilities

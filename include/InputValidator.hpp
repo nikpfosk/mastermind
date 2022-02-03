@@ -44,9 +44,8 @@ class InputValidator
 
     virtual ~InputValidator(){};
 
-    bool ValidateInput(const std::string& input)
+    bool ValidateInput(const std::string& input, std::vector<T>& inputValues)
     {
-        std::vector<T> inputValues{};
         PopulateInputValues(input, inputValues);
 
         if (!CheckInputLength(inputValues)) {
