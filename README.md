@@ -22,14 +22,26 @@ Compiled and tested with
 
 ## Getting started
 
-The classic Mastermind game is implemented in the console. The program is the *codemaker* and the user is the *codebreaker*. There are 6 colors and 4 code pegs. Therefore the valid inputs are [1111, 1112, ..., 6665, 6666]. 
+The classic Mastermind game is implemented in the console. The program is the *codemaker* and the user is the *codebreaker*. There are 6 colors and 4 code pegs. The valid inputs are comma separated integer values 
+
+**1,1,1,1**
+
+**1,1,1,2**
+
+**...**
+
+**6,6,6,5**
+
+**6,6,6,6** 
 
 The *codebreaker* must find the code in a maximum of 12 moves.
 
-The *codemaker* responds in each guess by the number of black and white key pegs. For example:
-- 00: Means 0 black and 0 white pegs.
-- 20: Means 2 black and 0 white pegs.
-- 01: Means 0 black and 1 white peg.
+The *codemaker* responds in each guess by the number of pins with correct color and correct position, and correct color but wrong position. For example:
+
+**Pins with correct color and correct position: 2**
+
+
+**Pins with correct color and wrong position: 0**
 
 ## Demo
 
