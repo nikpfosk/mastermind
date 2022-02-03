@@ -30,15 +30,14 @@ class SecretGenerator
 
     const SecretGenerator& operator=(const SecretGenerator&) = delete;
 
-    SecretGenerator(T length, T maxValue)
+    SecretGenerator(T length, T minValue, T maxValue)
     {
         static_assert(std::is_integral<T>::value,
                       "Template argument T must be integral");
         static_assert(sizeof(T) > 1,
                       "Template argument T should not be bool or (u)char");
         assert(length > 0);
-        assert(maxValue > 0);
-        GenerateSecret(length, maxValue);
+        GenerateSecret(length, minValue, maxValue);
     }
 
     ~SecretGenerator(){};
@@ -48,18 +47,22 @@ class SecretGenerator
   private:
     std::vector<T> _secret;
 
-    void GenerateSecret(T length, T maxValue)
+    void GenerateSecret(T length, T minValue, T maxValue)
     {
 
-        if (maxValue > std::numeric_limits<T>::max() - 1) {
-            maxValue = std::numeric_limits<T>::max() - 1;
+        if (maxValue > std::numeric_limits<T>::max()) {
+            maxValue = std::numeric_limits<T>::max();
+        }
+
+        if (minValue < std::numeric_limits<T>::min()) {
+            minValue = std::numeric_limits<T>::min();
         }
 
         _secret.resize(length);
 
         std::srand((unsigned int)time(NULL));
-        std::generate(_secret.begin(), _secret.end(), [maxValue]() {
-            return static_cast<T>(std::rand()) % maxValue + 1;
+        std::generate(_secret.begin(), _secret.end(), [minValue, maxValue]() {
+            return minValue + static_cast<T>(std::rand()) % maxValue;
         });
 
         std::cout << "\n";
