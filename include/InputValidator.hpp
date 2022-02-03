@@ -42,7 +42,7 @@ class InputValidator
 
     const InputValidator& operator=(const InputValidator&) = delete;
 
-    ~InputValidator(){};
+    virtual ~InputValidator(){};
 
     bool ValidateInput(const std::string& input)
     {

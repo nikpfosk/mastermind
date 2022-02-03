@@ -1,6 +1,3 @@
-#include "Constants.hpp"
-#include "InputValidator.hpp"
-#include "SecretGenerator.hpp"
 
 #include <iostream>
 #include <string>
@@ -17,17 +14,10 @@ main()
     // Input validation
     // Return results
     // Files needed
-    SecretGenerator<int> secretGenerator{ constants::numHoles,
-                                          1,
-                                          constants::numColors };
 
-    std::string inputSeparator(1, ',');
-    InputValidator<int> inputValidator{
-        constants::numHoles, 1, constants::numColors, inputSeparator
-    };
-
-    int round = 0;
-    while (round < constants::maxMoves) {
+    int round = 1;
+    while (round <= constants::maxMoves) {
+        std::cout << "\n****** Provide input for round " << round << std::endl;
         std::string userInput;
         std::cin >> userInput;
 

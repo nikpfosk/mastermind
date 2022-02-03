@@ -4,7 +4,6 @@
 #include <cassert>
 #include <cstdlib>
 #include <ctime>
-#include <iostream>
 #include <limits>
 #include <type_traits>
 #include <vector>
@@ -40,7 +39,7 @@ class SecretGenerator
         GenerateSecret(length, minValue, maxValue);
     }
 
-    ~SecretGenerator(){};
+    virtual ~SecretGenerator(){};
 
     const std::vector<T>& GetSecret() const { return _secret; };
 
@@ -64,12 +63,6 @@ class SecretGenerator
         std::generate(_secret.begin(), _secret.end(), [minValue, maxValue]() {
             return minValue + static_cast<T>(std::rand()) % maxValue;
         });
-
-        std::cout << "\n";
-        for (auto const& elem : _secret) {
-            std::cout << elem;
-        }
-        std::cout << "\n";
     }
 };
 
