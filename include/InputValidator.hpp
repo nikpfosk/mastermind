@@ -47,10 +47,13 @@ class InputValidator
     bool ValidateInput(const std::string& input)
     {
         std::vector<T> inputValues{};
-        std::cout << "ValidateInputCalled: " << input << std::endl;
         PopulateInputValues(input, inputValues);
 
         if (!CheckInputLength(inputValues)) {
+            return false;
+        }
+
+        if (!CheckInputBounds(inputValues)) {
             return false;
         }
 
@@ -91,10 +94,9 @@ class InputValidator
                              std::vector<T>& inputValues)
     {
         std::stringstream ss(input);
-        std::cout << "separator" << _separator[0] << std::endl;
 
         for (int i; ss >> i;) {
-            inputValues.push_back(i);
+            inputValues.push_back(static_cast<T>(i));
             if (ss.peek() == _separator[0])
                 ss.ignore();
         }
@@ -111,6 +113,20 @@ class InputValidator
         } else {
             return true;
         }
+    }
+
+    bool CheckInputBounds(const std::vector<T>& inputValues)
+    {
+        for (const auto& value : inputValues) {
+            if (value < _minValue || value > _maxValue) {
+                std::cout << "Value " << value << " is out of bounds."
+                          << std::endl;
+                std::cout << "Please provide values between " << _minValue
+                          << " and " << _maxValue << std::endl;
+                return false;
+            }
+        }
+        return true;
     }
 };
 
