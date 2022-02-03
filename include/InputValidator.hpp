@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <limits>
+#include <sstream>
 #include <string>
 #include <type_traits>
 #include <vector>
@@ -33,6 +34,8 @@ class InputValidator
       , _separator{ separator }
     {
         CheckTypeTraits();
+        assert(_separator.size() ==
+               1); // TODO: Smarter static separator validation.
     }
 
     InputValidator(const InputValidator&) = delete;
@@ -41,20 +44,27 @@ class InputValidator
 
     ~InputValidator(){};
 
-    bool ValidateInput(const std::string& input) const
+    bool ValidateInput(const std::string& input)
     {
+        std::vector<T> inputValues{};
         std::cout << "ValidateInputCalled: " << input << std::endl;
+        PopulateInputValues(input, inputValues);
+
+        if (!CheckInputLength(inputValues)) {
+            return false;
+        }
+
         return true;
     }
 
   private:
-    T _length;
-    T _minValue;
-    T _maxValue;
+    const T _length;
+    const T _minValue;
+    const T _maxValue;
 
-    bool _arithmeticValues = true;
-    bool _integralValues = true;
-    std::string _separator;
+    const bool _arithmeticValues = true;
+    const bool _integralValues = true;
+    const std::string _separator;
 
     void CheckTypeTraits()
     {
@@ -75,6 +85,32 @@ class InputValidator
     {
         static_assert(std::is_integral<T>::value,
                       "Template argument T must be integral");
+    }
+
+    void PopulateInputValues(const std::string& input,
+                             std::vector<T>& inputValues)
+    {
+        std::stringstream ss(input);
+        std::cout << "separator" << _separator[0] << std::endl;
+
+        for (int i; ss >> i;) {
+            inputValues.push_back(i);
+            if (ss.peek() == _separator[0])
+                ss.ignore();
+        }
+    }
+
+    bool CheckInputLength(const std::vector<T>& inputValues)
+    {
+        if (inputValues.size() != _length) {
+            std::cout << "You have provided " << inputValues.size()
+                      << " values." << std::endl;
+            std::cout << "Please provide " << _length << " values "
+                      << "separated by: " << _separator << std::endl;
+            return false;
+        } else {
+            return true;
+        }
     }
 };
 

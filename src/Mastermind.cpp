@@ -33,7 +33,8 @@ main()
 
         std::cout << "Your input: " << userInput << std::endl;
 
-        auto val = inputValidator.ValidateInput(userInput);
+        if (!inputValidator.ValidateInput(userInput))
+            continue;
 
         ++round;
     }
