@@ -15,6 +15,8 @@ target_include_directories( ${PROJECT_NAME}
 
 target_sources( ${PROJECT_NAME}
     PRIVATE
+    "${CMAKE_CURRENT_LIST_DIR}/src/RoundBasedGameExecutor.cpp"
+    "${CMAKE_CURRENT_LIST_DIR}/src/Mastermind.cpp"
     "${CMAKE_CURRENT_LIST_DIR}/src/Main.cpp"
 )
 

@@ -21,7 +21,7 @@ class Mastermind : public utilities::IRoundBasedGame
       : _secretGenerator{ constants::numHoles, 1, constants::numColors }
       , _inputValidator{ constants::numHoles, 1, constants::numColors, "," }
     {}
-    virtual ~Mastermind();
+    virtual ~Mastermind(){};
 
     void PrintGameRules() override;
     utilities::RoundOutcome PlayRound(const std::string& input) override;

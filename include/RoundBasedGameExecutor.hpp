@@ -1,6 +1,7 @@
 #pragma once
 
 #include "IRoundBasedGame.hpp"
+#include <memory>
 
 namespace utilities {
 
@@ -22,11 +23,16 @@ class RoundBasedGameExecutor
     const RoundBasedGameExecutor& operator=(const RoundBasedGameExecutor&) =
       delete;
 
-    RoundBasedGameExecutor(const IRoundBasedGame& game) {}
+    RoundBasedGameExecutor(std::shared_ptr<IRoundBasedGame> game)
+      : _game{ game }
+    {}
 
-    ~RoundBasedGameExecutor(){};
+    virtual ~RoundBasedGameExecutor(){};
 
     void PlayGame();
+
+  private:
+    std::shared_ptr<IRoundBasedGame> _game;
 };
 
 } // namespace utilities
