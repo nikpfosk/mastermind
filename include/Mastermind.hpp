@@ -12,6 +12,11 @@ namespace mastermind {
  *
  * \brief Class that implements the Mastermind game as a IRoundBasedGame
  *
+ * The mastermind class uses the generic secret generator and input validator
+ * and builds them with integer values taken from the global constants. In the
+ * future it can read different parameters from a config file and alter the
+ * game's complexity and rules.
+ *
  *
  */
 class Mastermind : public utilities::IRoundBasedGame

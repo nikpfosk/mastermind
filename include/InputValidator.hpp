@@ -17,6 +17,12 @@ namespace utilities {
  * \brief Generic class that validates the input based on a selected number of
  * conditions.
  *
+ * The class is meant to receive a string of values separated by a delimiter
+ * (i.e. ',') and some initial conditions like the desired length, min and max
+ * values of the input. Then it checks the validity of the input by the public
+ * ValidateInput method. It can be extended, recofigured and used for multiple
+ * cases and value template types in the future.
+ *
  */
 template<typename T>
 class InputValidator

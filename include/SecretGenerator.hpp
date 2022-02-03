@@ -17,7 +17,8 @@ namespace utilities {
  *
  * The class is constructed with two parameters. The length of the secret, and
  * the maxValue of each secret element. The class is templated and supports
- * only integral types.
+ * only integral types for now. It is meant to be flexible for future use in
+ * various cases.
  */
 template<typename T>
 class SecretGenerator

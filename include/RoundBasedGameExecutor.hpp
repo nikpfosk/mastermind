@@ -8,9 +8,11 @@ namespace utilities {
 /**
  * \class RoundBasedGameExecutor
  *
- * \brief Pure abstract class that defines a round based game.
+ * \brief Class that runs a round based game for an object that implements the
+ * IRoundBaseGame class.
  *
- * Objects of this class can be executed by the RoundBasedGameExecutor.
+ * The executor is configured by the number of rounds provided in the config and
+ * runs the abstract game for the user's console input.
  *
  */
 class RoundBasedGameExecutor
